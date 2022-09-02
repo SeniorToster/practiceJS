@@ -1,20 +1,35 @@
-/** ЗАДАЧА 36 - Случайные числа
- *
- * 1. Cгенерируйте новое 4-значное случайное число.
- * Диапазон для случайного числа 1000 - 9999.
- *
- * 2. Убедитесь, что это новое случайное число не совпадает ни с одним из чисел в массиве myNumbers.
- *
- * 3. Если совпадает, вам нужно сгенерировать новое 4-значное число.
- *
- * 4. Если совпадений нет (новый номер уникален), добавьте его в массив myNumbers.
- *
- * ВАЖНО: В решении задачи используйте функции:
- *  - для генерации случайного числа в заданном диапазоне
- *  - для добавления случайного числа в массив с возвратом измененного массива
- */
-
 const MIN = 1000;
 const MAX = 9999;
 
 const myNumbers = [2355, 7235, 8135, 1762, 2361, 8351];
+
+const randomNum = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const newArr = (arr, min, max) => {
+  const newRandomNum = randomNum(min, max);
+  arr.forEach(num => {
+    if (num != newRandomNum) {
+      arr.push(newRandomNum);
+    }
+  });
+  myNumbers.splice(-5, 5);
+};
+
+newArr(myNumbers, MIN, MAX);
+
+console.log(myNumbers);
+
+/* второй вариант */
+const newArr2 = (arr, min, max) => {
+  do {
+    newRandomNum = randomNum(min, max);
+  } while (arr.includes(newRandomNum));
+
+  arr.push(newRandomNum);
+};
+
+newArr2(myNumbers, MIN, MAX);
+
+console.log(myNumbers);
