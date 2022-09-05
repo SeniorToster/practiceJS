@@ -1,14 +1,3 @@
-/** ЗАДАЧА 57 - Трансформация массива объектов
- *
- * 1. Создайте функцию "processPosts", которая будет возвращать новый массив сообщений
- *
- * 2. Обратите внимание, что
- *  - некоторые имена свойств в каждом сообщении изменены
- *  - ID каждого сообщения увеличен на 1000
- *
- * 3. Исходный массив постов должен остаться без изменений
- */
-
 const testPosts = [
   {
     postId: 234,
@@ -24,10 +13,46 @@ const testPosts = [
     author: 'merryl',
     commentsQty: 8,
   },
-]
+];
 
-const processedPosts = processPosts(testPosts)
-console.log(processedPosts)
+/* 
+const processPosts = aray =>
+  aray.map(item => {
+    const { postId, author, commentsQty = 0 } = item;
+    return {
+      postId: postId + 1000,
+      postAuthor: author,
+      postCommentsQty: commentsQty,
+    };
+  });
+ */
+/* 
+const processPosts = array =>
+  array.map(item => {
+    const {
+      postId,
+      author: postAuthor,
+      commentsQty: postCommentsQty = 0,
+    } = item;
+
+    return {
+      postId: postId + 1000,
+      postAuthor,
+      postCommentsQty,
+    };
+  });
+ */
+const processPosts = array =>
+  array.map(
+    ({ postId, author: postAuthor, commentsQty: postCommentsQty = 0 }) => ({
+      postId: postId + 1000,
+      postAuthor,
+      postCommentsQty,
+    })
+  );
+
+const processedPosts = processPosts(testPosts);
+console.log(processedPosts);
 /*
 [
   {
@@ -48,5 +73,5 @@ console.log(processedPosts)
 ]
 */
 
-console.log(testPosts)
+console.log(testPosts);
 // оригинальный массив должен остаться без изменений

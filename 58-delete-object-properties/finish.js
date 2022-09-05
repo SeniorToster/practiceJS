@@ -15,9 +15,23 @@ let person = {
   email: 'slarsen@test.com',
   name: 'Samanta Larsen',
   cartId: 435,
+};
+/* 
+const delItem = (...person) =>
+  person.forEach(itemPerson => {
+    delete itemPerson._id;
+    delete itemPerson.cart;
+    delete itemPerson.processed;
+  });
+delItem(person);
+ */
+
+{
+  let _id, cart, processed;
+  ({ _id, cart, processed, ...person } = person);
 }
 
-console.log(person)
+console.log(person);
 /*
 {
   index: 4,

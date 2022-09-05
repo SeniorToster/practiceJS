@@ -6,6 +6,7 @@ const personInfo = ({ name, age, location: { country, city } }) => ({
   friendsQty: 0,
   createdAtYear: new Date().getFullYear(),
 });
+
 const person = {
   name: 'Alice',
   age: 19,
