@@ -1,17 +1,11 @@
-/** ЗАДАЧА 72 - Копия массива
- *
- * Создайте копию массива.
- * При изменении копии массива оригинальный массив не должен изменяться
- */
+const a = [1, 2, 3];
 
-const a = [1, 2, 3]
+const b = [...a];
 
-// Напишите код здесь
+b.push('newElement');
 
-b.push('newElement')
-
-console.log(a)
+console.log(a);
 // [1, 2, 3]
 
-console.log(b)
+console.log(b);
 // [1, 2, 3, "newElement"]

@@ -9,7 +9,7 @@ const vowels = ['a', 'e', 'i', 'o', 'u']
 
 const str = 'Today is the best day of my life'
 
-// Напишите код здесь
+
 
 console.log(vowelsCount)
 // 9
