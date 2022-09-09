@@ -1,15 +1,16 @@
-/** ЗАДАЧА 75 - Перебор символов строки
- *
- * Подсчитайте количество строчных гласных букв в строке.
- * Гласные буквы - a, e, i, o, u
+let vowelsCount = 0;
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+const str = 'Today is the best day of my life';
+
+/* str.split('').forEach(item => {
+  if (vowels.includes(item)) vowelsCount += 1;
+});
  */
 
-let vowelsCount = 0
-const vowels = ['a', 'e', 'i', 'o', 'u']
+for (const item of str) {
+  if (vowels.includes(item)) vowelsCount += 1;
+}
 
-const str = 'Today is the best day of my life'
-
-
-
-console.log(vowelsCount)
+console.log(vowelsCount);
 // 9

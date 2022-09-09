@@ -1,23 +1,39 @@
-/** ЗАДАЧА 79 - Перебор свойств объекта
- *
- * 1. Создайте функцию "sumObjectValues", которая будет суммировть
- * все значения свойств, которые являются числами.
- *
- * 2. Сумму чисел необходимо вернуть из функции
- *
- * 3. Убедитесь, что итерация выполняется только
- * по собственным свойствам объекта
- */
-
 const objectWithNumbers = {
   a: 10,
   b: 20,
   c: 'string',
   d: 12,
-}
+};
+/* 
+const sumObjectValues = obj => {
+  let sum = 0;
+  Object.keys(obj).forEach(vaule => {
+    if (typeof obj[vaule] === 'number') sum += obj[vaule];
+  });
+  return sum;
+};
+ */
 
-// Создайте функцию здесь
+/* const sumObjectValues = obj => {
+  let sum = 0;
+  for (const vaule in obj) {
+    if (obj.hasOwnProperty(vaule))
+      if (typeof obj[vaule] === 'number') {
+        sum += obj[vaule];
+      }
+  }
+  return sum;
+};
+ */
 
-const result = sumObjectValues(objectWithNumbers)
-console.log(result)
+const sumObjectValues = obj => {
+  let sum = 0;
+  Object.values(obj).forEach(vaule => {
+    if (typeof vaule === 'number') sum += vaule;
+  });
+  return sum;
+};
+
+const result = sumObjectValues(objectWithNumbers);
+console.log(result);
 //42
